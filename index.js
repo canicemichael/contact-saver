@@ -162,9 +162,8 @@ app.post(
         { expiresIn: "1d" }
       );
       // res.status(200).json({ accessToken });
-        // save the tokens local storage or something
-        return res.render("contact/contact_query");
-
+      // save the tokens local storage or something
+      return res.render("contact/contact_query");
     } else {
       res.status(401);
       throw new Error("email or password is not valid");
@@ -173,8 +172,30 @@ app.post(
   })
 );
 
+// ============= contact routes =================
+
 app.get("/contactPage", async (req, res) => {
   res.render("contact/contact_query");
+});
+
+app.get("/contactPage/createContact", async (req, res) => {
+  res.render("contact/create_contact");
+});
+
+app.get("/contactPage/getContact", async (req, res) => {
+  res.render("contact/get_contact");
+});
+
+app.get("/contactPage/fetchContacts", async (req, res) => {
+  res.render("contact/fetch_contacts");
+});
+
+app.get("/contactPage/updateContact", async (req, res) => {
+  res.render("contact/update_contact");
+});
+
+app.get("/contactPage/deleteContact", async (req, res) => {
+  res.render("contact/delete_contact");
 });
 
 app.listen(port, () => {

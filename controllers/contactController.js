@@ -4,7 +4,7 @@ const Contact = require("../models/contactModel");
 //@desc Get all contacts
 //@routes GET /api/contactPage
 //@access public
-const getContactPage = asyncHandler(async (req, res) => {  
+const getContactPage = asyncHandler(async (req, res) => {
   // return res.render("contact/contact_query");
   res.send("contact-contact_query");
 });
@@ -98,5 +98,5 @@ module.exports = {
   createContact,
   updateContact,
   deleteContact,
-  getContactPage
+  getContactPage,
 };

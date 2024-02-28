@@ -1,5 +1,18 @@
 <%- include('partials/header') %>
+
+
+
 <div class="container_two">
+  <div class="navbar-custom">    
+    <button class="navbar-child" id="createContact">Create Contact</button>
+    <button class="navbar-child" id="fetchContacts">Fetch Contacts</button>
+    <button class="navbar-child" id="getContact">Get Contact</button>
+    <button class="navbar-child" id="updateContact">Update Contact</button>
+    <button class="navbar-child" id="deleteContact">Delete Contact</button>
+  </div>
+
+
+
     <div class="container_two_one">
       <h3 class="welcome">Welcome to the contact saver</h3>
       <p class="welcome_p">
@@ -12,9 +25,9 @@
       <!-- <div class="one">
         <h1 class="text">Register</h1>
       </div> -->
-      <form action="/get-contact" method="get">
+      <form action="/contactPage/get-contact" method="post">
         <div class="two">
-          <input type="text" placeholder="contact id" name="name" required />
+          <input type="text" placeholder="contact id" name="contact_id" required />
         </div>
         <div class="five">
           <button type="submit" class="btn btn-primary">

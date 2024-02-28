@@ -11,7 +11,7 @@ document.getElementById("fetchContacts").addEventListener("click", function() {
 
 document.getElementById("getContact").addEventListener("click", function() {
     // Redirect to another page
-    window.location.href = "http://localhost:5003/contactPage/getContact";
+    window.location.href = "http://localhost:5003/contactPage/get-contact-page";
 });
 
 document.getElementById("updateContact").addEventListener("click", function() {
@@ -23,3 +23,6 @@ document.getElementById("deleteContact").addEventListener("click", function() {
     // Redirect to another page
     window.location.href = "http://localhost:5003/contactPage/deleteContact";
 });
+
+// ======================================
+

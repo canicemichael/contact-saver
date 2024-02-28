@@ -1,24 +1,60 @@
 <%- include('partials/header') %>
 
-    <div class="container fetch-container" >
-        <div class="contact-list">Contact Lists</div>
-        <ul>                        
-            <div class="row">
-                <div class="col contact-head">Name</div>
-                <div class="col contact-head">Email</div>
-                <div class="col contact-head">Phone</div>
-                
-            </div>            
-          </ul>
-        <ul>
-            <% for (const key in contacts) { %>              
-              <div class="row">
-                <div class="col contact-head"><%= contacts[key].name %></div>
-                <div class="col contact-head"><%= contacts[key].email %></div>
-                <div class="col contact-head"><%= contacts[key].phone %></div>
-            </div>
-            <div class="col contact-head">contact-id: <%= contacts[key]._id %></div>
-            <% } %>
-          </ul>
+<div class="container fetch-container">
+  <div class="navbar-custom">    
+    <button class="navbar-child" id="createContact">Create Contact</button>
+    <button class="navbar-child" id="fetchContacts">Fetch Contacts</button>
+    <button class="navbar-child" id="getContact">Get Contact</button>
+    <button class="navbar-child" id="updateContact">Update Contact</button>
+    <button class="navbar-child" id="deleteContact">Delete Contact</button>
+  </div>
+
+  <div class="contact-list">Contact Lists</div>
+  <ul>
+    <div class="row">
+      <div class="col contact-head">Name</div>
+      <div class="col contact-head">Email</div>
+      <div class="col contact-head">Phone</div>
     </div>
+  </ul>
+  <ul>
+    <% for (const key in contacts) { %>
+    <div class="row">
+      <div class="col contact-head"><%= contacts[key].name %></div>
+      <div class="col contact-head"><%= contacts[key].email %></div>
+      <div class="col contact-head"><%= contacts[key].phone %></div>
+    </div>
+    <div class="col contact-head">
+      contact-id:
+      <p id="textToCopy"><%= contacts[key]._id %></p>
+      <button id="copyButton" class="btn btn-primary">Copy ID</button>
+    </div>
+    <% } %>
+  </ul>
+</div>
+
+<script>
+  document.getElementById("copyButton").addEventListener("click", function () {
+    // Get the text to be copied
+    var textToCopy = document.getElementById("textToCopy").innerText;
+
+    // Create a temporary input element
+    var tempInput = document.createElement("input");
+    tempInput.setAttribute("value", textToCopy);
+    document.body.appendChild(tempInput);
+
+    // Select the text in the input element
+    tempInput.select();
+    tempInput.setSelectionRange(0, 99999); /* For mobile devices */
+
+    // Copy the selected text
+    document.execCommand("copy");
+
+    // Remove the temporary input element
+    document.body.removeChild(tempInput);
+
+    // Provide some visual feedback (optional)
+    alert("Contact-id copied: " + textToCopy);
+  });
+</script>
 <%- include('partials/footer') %>

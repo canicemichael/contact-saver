@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+
+
+    <div class="container fetch-container" >
+        <div class="navbar-custom">    
+            <button class="navbar-child" id="createContact">Create Contact</button>
+            <button class="navbar-child" id="fetchContacts">Fetch Contacts</button>
+            <button class="navbar-child" id="getContact">Get Contact</button>
+            <button class="navbar-child" id="updateContact">Update Contact</button>
+            <button class="navbar-child" id="deleteContact">Delete Contact</button>
+          </div>
+
+
+
+        <div class="contact-list">Contact Lists</div>
+        <ul>                        
+            <div class="row">
+                <div class="col contact-head">Name</div>
+                <div class="col contact-head">Email</div>
+                <div class="col contact-head">Phone</div>
+                
+            </div>            
+          </ul>
+        <ul>
+                 
+              <div class="row">
+                <div class="col contact-head"><%= contact.name %></div>
+                <div class="col contact-head"><%= contact.email %></div>
+                <div class="col contact-head"><%= contact.phone %></div>
+            </div>
+            <div class="col contact-head">contact-id: <%= contact._id %></div>
+            <div class="col contact-head">user-id: <%= contact.user_id %></div>
+            <div class="col contact-head">Date saved: <%= contact.createdAt %></div>
+            
+          </ul>
+    </div>
+<%- include('partials/footer') %>

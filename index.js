@@ -343,19 +343,39 @@ app.post(
       user_id: req.user,
     });
 
-    res.status(201).redirect("/contactPage/fetchContacts") ;
+    res.status(201).redirect("/contactPage/fetchContacts");
   })
 );
 
-app.get("/contactPage/getContact", async (req, res) => {
-  res.render("contact/get_contact");
+app.get("/contactPage/get-contact-page", async (req, res) => {
+  res.render("contact/get-contact-page");
 });
 
-app.get("/contactPage/fetchContacts", asyncHandler(async (req, res) => {
-  const contacts = await Contact.find({ user_id: req.user });
-  res.render("contact/fetch-contacts", {contacts});
-}));
-// 
+app.post(
+  "/contactPage/get-contact",
+  asyncHandler(async (req, res) => {
+    const { contact_id } = req.body;
+    // const contact = await Contact.findById(req.params.id);
+    const contact = await Contact.findById(contact_id);
+    // console.log("dContact", contact);
+    // console.log("Contact-id", contact_id);
+    // console.log("req.body", req.body);
+    if (!contact) {
+      res.status(404);
+      throw new Error("Contact not found");
+    }
+    res.status(200).render("contact/get-contact", { contact });
+  })
+);
+
+app.get(
+  "/contactPage/fetchContacts",
+  asyncHandler(async (req, res) => {
+    const contacts = await Contact.find({ user_id: req.user });
+    res.render("contact/fetch-contacts", { contacts });
+  })
+);
+//
 
 app.get("/contactPage/updateContact", async (req, res) => {
   res.render("contact/update_contact");

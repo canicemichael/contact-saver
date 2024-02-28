@@ -4,8 +4,10 @@
   <div class="container_two_one">
     <h3 class="welcome">Welcome to the contact saver</h3>
     <p class="welcome_p">
-      Saves your contacts for you easily, with easy access to all of it!
+      Saves your contacts for you easily, fill in the form to create an account.
     </p>
+
+    <%- include('partials/messages') %>
 
     <h3 class="create-aza">Create account</h3>
   </div>
@@ -14,25 +16,28 @@
       <h1 class="text">Register</h1>
     </div> -->
     <form action="/register" method="post">
+      <!-- <div class="two">
+        <input type="text" placeholder="username" name="username" />
+      </div> -->
       <div class="two">
-        <input type="text" placeholder="username" name="username" required />
-      </div>
-      <div class="two">
-        <input type="text" placeholder="email" name="email" required />
+        <input type="text" placeholder="email" name="email"  />
       </div>
       <div class="three">
-        <input type="text" placeholder="password" name="password" id="pass"/>
+        <input type="text" placeholder="password" name="password" id="pass" />
       </div>
       <div class="three">
-        <input type="text" placeholder="repeat password" name="password2" id="con-pass" />
+        <input
+          type="text"
+          placeholder="repeat password"
+          name="password2"
+          id="con-pass"
+        />
       </div>
       <div class="four">
         <a class="text_sub" href="http://">Forget password</a>
       </div>
       <div class="five">
-        <button type="submit" class="btn btn-primary">
-          Create user
-        </button>
+        <button type="submit" class="btn btn-primary">Create user</button>
       </div>
     </form>
   </div>

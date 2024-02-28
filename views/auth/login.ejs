@@ -11,18 +11,19 @@
         <div class="one">
             <h1 class="text">Login</h1>
         </div>
-        <form id="loginForm" >
+        <form id="loginForm" action="/login" method="post">
+          <%- include('partials/messages') %>
             <div class="two">
-                <input type="text" placeholder="email" name="email" id="email">
+                <input type="email" placeholder="email" name="email" id="email">
             </div>
             <div class="three">
                 <input type="text" placeholder="password" name="password" id="password">
             </div>
             <div class="four">
-                <a class="text_sub" href="http://">Forget password</a>
+                <a class="text_sub" href="#">Forget password</a>
             </div>
             <div class="five">
-                <button type="submit" class="btn btn-primary" onclick="login()">Login</button>
+                <button type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
     </div>

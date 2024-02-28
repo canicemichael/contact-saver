@@ -39,6 +39,18 @@ html {
     box-shadow: 0 9px 19px rgb(0 0 0 / 0.9);
   }
 
+  .fetch-container {
+    height: 100vh;
+  }
+
+  .contact-list {
+    font-size: 2rem;
+  }
+
+  .contact-head {
+    font-size: 1.5rem;
+  }
+
 .container_two_one {
     height: 50%;
     width: 100%;

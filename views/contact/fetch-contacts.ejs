@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+    <div class="container fetch-container" >
+        <div class="contact-list">Contact Lists</div>
+        <ul>                        
+            <div class="row">
+                <div class="col contact-head">Name</div>
+                <div class="col contact-head">Email</div>
+                <div class="col contact-head">Phone</div>
+                
+            </div>            
+          </ul>
+        <ul>
+            <% for (const key in contacts) { %>              
+              <div class="row">
+                <div class="col contact-head"><%= contacts[key].name %></div>
+                <div class="col contact-head"><%= contacts[key].email %></div>
+                <div class="col contact-head"><%= contacts[key].phone %></div>
+            </div>
+            <div class="col contact-head">contact-id: <%= contacts[key]._id %></div>
+            <% } %>
+          </ul>
+    </div>
+<%- include('partials/footer') %>

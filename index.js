@@ -10,9 +10,13 @@ const MongoStore = require("connect-mongo");
 const dotenv = require("dotenv").config();
 
 const asyncHandler = require("express-async-handler");
+
+// models
 const { User } = require("./models/userModel");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+const Contact = require("./models/contactModel");
+
+// const bcrypt = require("bcryptjs");
+// const jwt = require("jsonwebtoken");
 
 // important models
 const funct = require("./config/funct");
@@ -322,13 +326,36 @@ app.get("/contactPage/createContact", async (req, res) => {
   res.render("contact/create_contact");
 });
 
+app.post(
+  "/create-contact",
+  asyncHandler(async (req, res) => {
+    console.log("The req body is: ", req.body);
+    const { name, email, phone } = req.body;
+    if (!name || !email || !phone) {
+      res.status(400);
+      throw new Error("All fields are mandatory!");
+    }
+    console.log("user-ID: ", req.user);
+    const contact = await Contact.create({
+      name,
+      email,
+      phone,
+      user_id: req.user,
+    });
+
+    res.status(201).redirect("/contactPage/fetchContacts") ;
+  })
+);
+
 app.get("/contactPage/getContact", async (req, res) => {
   res.render("contact/get_contact");
 });
 
-app.get("/contactPage/fetchContacts", async (req, res) => {
-  res.render("contact/fetch_contacts");
-});
+app.get("/contactPage/fetchContacts", asyncHandler(async (req, res) => {
+  const contacts = await Contact.find({ user_id: req.user });
+  res.render("contact/fetch-contacts", {contacts});
+}));
+// 
 
 app.get("/contactPage/updateContact", async (req, res) => {
   res.render("contact/update_contact");

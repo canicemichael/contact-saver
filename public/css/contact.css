@@ -45,6 +45,10 @@ html {
 
   .contact-list {
     font-size: 2rem;
+    background-color: white;
+    color: purple;
+    margin-bottom: 2rem;
+    text-align: center;
   }
 
   .contact-head {
@@ -120,4 +124,9 @@ input {
 .contact_two {
     display: flex;
     justify-content: space-between;
+}
+
+.row {
+  border: 2px solid white;
+  margin-top: 0.5rem;
 }

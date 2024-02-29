@@ -163,3 +163,15 @@ input {
   border: 2px solid white;
   color: white;
 }
+
+.navbar-child-two {
+  width: 33.33%;
+  background-color: rgb(70, 5, 70);
+  margin: 0.03rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  border: 2px solid white;
+  color: white;
+}
